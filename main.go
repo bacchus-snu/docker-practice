@@ -17,12 +17,13 @@ func main() {
 	http.HandleFunc("/",
 		func(w http.ResponseWriter, r *http.Request) {
 			fmt.Fprintln(w, u.Username)
+			log.Printf("Served a request!\n");
 		},
 	)
 
 	port := os.Getenv("PORT")
 	if port == "" {
-		port = "8080"
+		port = "80"
 	}
 
 	log.Println("Listening on port", port)
